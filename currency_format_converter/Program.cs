@@ -12,7 +12,7 @@ namespace currency_format_converter
             Console.WriteLine("Enter a dollar amount:");
             int i = 0;
 
-            while (amounts.Contains(0)) 
+            while (amounts.Contains(0))
             {
                 Console.Write("$");
                 try
@@ -31,6 +31,7 @@ namespace currency_format_converter
             // New instance of CurrencyCalculator 
             CurrencyCalculator calculator = new CurrencyCalculator(amounts);
 
+
             // Call ReturnTotal method
             double total = calculator.ReturnTotal();
             // Call ReturnMean method
@@ -40,10 +41,21 @@ namespace currency_format_converter
             // Call ReturnSmallest method
             double smallest = calculator.ReturnSmallest();
 
-            Console.WriteLine("The total cost is: $" + total);
-            Console.WriteLine("The average cost of the items is: $" + Math.Round(mean, 2));
-            Console.WriteLine("The most expensive item is: $" + largest);
-            Console.WriteLine("The least expensive item is: $" + smallest);
+            // New instance of FormattedCurrency
+            FormattedCurrency formattedTotal = new FormattedCurrency(total);
+
+            Console.WriteLine(
+               "The total cost is: $" + Convert.ToString(total) + "\n"
+             + "The average cost of the items is: $" + Math.Round(mean, 2) + "\n"
+             + "The most expensive item is: $" + largest + "\n"
+             + "The least expensive item is: $" + smallest + "\n");
+
+            Console.WriteLine(
+               "TOTAL:" + "\n"
+               + "\t" + formattedTotal.ToUsd() + "\n" 
+               + "\t" + formattedTotal.ToSwedishKrona() + "\n" 
+               + "\t" + formattedTotal.ToJapanese() + "\n"
+               + "\t" + formattedTotal.ToThai() + "\n");
         }
     }
 }
