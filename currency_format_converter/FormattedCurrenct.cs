@@ -13,7 +13,7 @@ namespace currency_format_converter
              _usd = usd;
         }
 
-        // Methods to format to different currencies;
+        // Methods to format different currencies
         public string ToSwedishKrona()
         {
             string krona = string.Format("{0:n}", _usd).Replace( ',', ' ');
