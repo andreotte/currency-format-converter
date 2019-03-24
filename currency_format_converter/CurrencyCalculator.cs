@@ -34,7 +34,7 @@ namespace currency_format_converter
             return (double)total / _values.Length;
         }
 
-        //Method to find latgest
+        //Method to find largest
         public double ReturnLargest()
         {
             double largest = 0;
