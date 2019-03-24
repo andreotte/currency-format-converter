@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace currency_format_converter
+﻿namespace currency_format_converter
 {
     public class CurrencyCalculator
     {
